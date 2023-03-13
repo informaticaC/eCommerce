@@ -20,8 +20,25 @@ function printProducts(db) {
      // console.log(product);
         html +=`
             <div class="product">
-                <p>${product.name}</p>
+                <div class="product_image">
+                    <img src="${product.image}" alt="image ${product.name}">
+                </div>
+
+                <div class="product_info">
+                    <h3>
+                        ${product.name} <span><b>Stock</b>: ${product.quantity}</span>
+                    </h3>
+                    <h4>
+                        $${product.price}
+                    </h4>
+
+                    <div class="product_actions">
+                        <i class='bx bxs-cart-add' id="${product.id}"></i>                        
+                    </div>
+                </div>
+
             </div>
+
         `;
     }
     productsHTML.innerHTML = html;

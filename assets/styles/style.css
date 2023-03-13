@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    padding: 1rem;
+}
+.img{
+    width: 100%;
+    display: block;
+
+}
+
+.products{
+   /* background-color: red;*/
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 1024px;
+    margin:0 auto;
+    gap: 10rem;
+
+}
+
+.product{
+    background-color: red;
+}
