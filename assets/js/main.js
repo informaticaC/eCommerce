@@ -26,7 +26,7 @@ function printProducts(db) {
 
                 <div class="product_info">
                     <h3>
-                        ${product.name} <span><b>Stock</b>: ${product.quantity}</span>
+                        ${product.name} | <span><i><b>Stock</b>:</i> ${product.quantity}</span>
                     </h3>
                     <h4>
                         $${product.price}
