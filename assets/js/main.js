@@ -51,10 +51,15 @@ async function main() {
         cart: {},
     };
     
-      console.log("db.products Data:=> " , typeof(db.products) ,db.products);
+    //   console.log("db.products Data:=> " , typeof(db.products) ,db.products);
       
       printProducts(db);
+
+      const bxcartHTML = document.querySelector(".bx-cart");
+      const cartHTML = document.querySelector(".cart");
     
+      console.log(bxcartHTML);
+      console.log(cartHTML);
 }
 
 main();
