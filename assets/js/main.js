@@ -25,12 +25,13 @@ function printProducts(db) {
                 </div>
 
                 <div class="product__info">
-                    <h3>
-                        ${product.name} | <span><i><b>Stock</b>:</i> ${product.quantity}</span>
-                    </h3>
                     <h4>
-                        $${product.price}
+                        $${product.price} <span><i><b>Stock</b>:</i> ${product.quantity}</span>
                     </h4>
+                    <h3>
+                        ${product.name}
+                    </h3>
+                    
 
                     <div class="product__actions">
                         <i class='bx bxs-cart-add ' id="${product.id}"></i>                        
@@ -50,6 +51,7 @@ function showCartHandler() {
     iconCartHTML.addEventListener("click", function () {
       
       cartHTML.classList.toggle("cart__show");
+
     });
 }
 
@@ -92,7 +94,7 @@ function printProductsInCart(db) {
         amount} = db.cart[product];
         console.log({quantity, price, name, image, id, amount});
         html += `
-            <div class="cart__product product ">
+            <div class="cart__product">
                 <div class="cart__produc--image">
                     <img class ="cart__product_image_img" src="${image}" alt="image ${name}">
                 </div>
@@ -100,7 +102,7 @@ function printProductsInCart(db) {
                     <h4>${name} | $${price}</h4>
                     <p>Stock: ${quantity}</p>
                     
-                    <div class="cart__product--body-op">
+                    <div class="cart__product--body-op" id="${id}">
                         <i class="bx bx-minus " id="${id}"></i>
                         <span>${amount} unit</span>
                         <i class="bx bx-plus " id="${id}"></i>
@@ -115,6 +117,52 @@ function printProductsInCart(db) {
    cartProducts.innerHTML = html;
 }
 
+function handleProductsInCart(db) {
+    let cartProduct = document.querySelector(".cart__products");
+    cartProduct.addEventListener("click", (e)=>{
+        if(e.target.classList.contains("bx-plus")){
+
+            const id = Number(e.target.id);
+            if (db.cart[id].amount === db.products[id-1].quantity) {
+                return alert( 'No hay mas productos en bodega!')
+            }
+            db.cart[id].amount++;
+          
+        }
+
+        if(e.target.classList.contains("bx-minus")){
+            const id = Number(e.target.id);
+            if (db.cart[id].amount === 1) {
+                const response = confirm(
+                    "¿Estás seguro de que quieres eliminar este producto?"
+                );
+                if (response) {
+                    delete db.cart[id];
+                }           
+               
+            }else {
+                db.cart[id].amount--; 
+            }
+               
+        }
+
+        if(e.target.classList.contains("bx-trash")){
+            const id = Number(e.target.id);
+           
+            const response = confirm(
+                "¿Estás seguro de que quieres eliminar este producto?"
+            );
+            if (response) {
+                delete db.cart[id];
+            }         
+           
+        }
+
+        window.localStorage.setItem("cart", JSON.stringify(db.cart));
+        printProductsInCart(db);
+    })
+}
+
 async function main() {
 
     const db = {
@@ -127,6 +175,11 @@ async function main() {
     showCartHandler();
     addToCartFromProduct(db);
     printProductsInCart(db);
+    handleProductsInCart(db)
+
+ 
+
+    
    
 }
 
