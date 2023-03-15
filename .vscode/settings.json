@@ -1,3 +1,4 @@
 {
-    "tabnine.disableFileRegex": []
+    "tabnine.disableFileRegex": [],
+    "liveServer.settings.port": 5501
 }
