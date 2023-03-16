@@ -38,7 +38,7 @@ function printProducts(db) {
                     
                     <div class="product__actions">
                     ${product.quantity ?
-                        `<i class='bx bxs-cart-add' id="${product.id}"></i>`
+                        `<i class='bx bx-plus' id="${product.id}"></i>`
                         : ""
                     }   
                         
@@ -66,7 +66,7 @@ function addToCartFromProduct(db) {
     const productsHTML = document.querySelector(".products");
 
     productsHTML.addEventListener("click", function (e) {
-        if (e.target.classList.contains("bxs-cart-add")) {
+        if (e.target.classList.contains("bx-plus")) {
             const id = Number(e.target.id);
 
             const productFind = db.products.find((product) => product.id === id);
@@ -108,8 +108,10 @@ function printProductsInCart(db) {
                     <img class ="cart__product_image_img" src="${image}" alt="image ${name}">
                 </div>
                 <div class="cart__product--body">
-                    <h4>${name} | $${price}</h4>
-                    <p>Stock: ${quantity}</p>
+                    <h4>${name} </h4>
+                    <p>Stock: ${quantity} <span style="color: red;">| $${price}</span></p>
+                    <p style="color: red;">Subtotal: $${amount * price}</p>
+
                     
                     <div class="cart__product--body-op" id="${id}">
                         <i class="bx bx-minus " id="${id}"></i>
