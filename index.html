@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="header">
-        <nav>
+        <nav class="header_elements">
             <a href="#home" class="navbar_logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="nav_logo-icon">
                     <title>Academlo Logo</title>
@@ -34,9 +34,60 @@
             </i>
         </nav>
     </header>
+    
+    <article class="home" id="home">
+        
+        <div class="newCollection">
+
+            <div class="spacer"></div>
+            <p class="newCollection__title">
+                New Sweatshirt COLLECTIONS 2022
+            </p>
+            <p class="newCollection__description">
+                Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a modern design.
+            </p>
+            <p class="newCollection__price">
+                $14.00
+            </p>
+            <button class="btnShowmore">
+                <a  class="showMore" href="#products">Show more</a>
+            </button>
+        </div>
+
+        <div class="newCollection__img">
+            <img src="./assets/img/sweater2.png" alt="">
+        </div>
+    </article>
+
+    <div class="filters">
+
+        <div class="filter__buttons">
+            <button class="btnFilter__btn" type="button">
+                <span class="filter__label">Show all</span>
+                <span class="total"></span>
+            </button>
+            <button class="btnFilter__btn" type="button">
+                <span class="filter__label">Shirt</span>
+                <span class="total total__shirt">unidades</span>
+            </button>
+            <button class="btnFilter__btn" type="button">
+                <span class="filter__label">Hoddie</span>
+                <span class="total total__hoddie">unidades</span>
+            </button>
+            <button class="btnFilter__btn" type="button">
+                <span class="filter__label">Sweater</span>
+                <span class="total total__sweater">unidades</span>
+            </button>
+    
+        </div>
+
+    </div>
+
+
+
 
     <div class="products" id="products"></div>
-
+    
     <div class="cart">
         <div class="cart__products"></div>
         <div class="cart__total">
@@ -50,6 +101,60 @@
             </button>
         </div>
     </div>
+
+    <footer>
+        <section class="content_footer container">
+            <div class="footer_info">
+                <h3 class="footer_info-title">Our information</h3>
+                <ul>
+                    <li><a href="#">Toluca - México</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_info">
+                <h3 class="footer_info-title">About Us</h3>
+                <ul>
+                    <li><a href="#">Support Center</a></li>
+                    <li><a href="#">Customer Support</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Copy Right</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_info">
+                <h3 class="footer_info-title">Product</h3>
+                <ul>
+                    <li><a href="#">Hoodies</a></li>
+                    <li><a href="#">Shirts</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Sweatshirts</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_info">
+                <h3 class="footer_info-title">Social</h3>
+                <ul class="footer_link-social">
+                    <li>
+                        <a href="#">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <p><b>Marcelo Gabriel Pesoa, email: pesoa01@gmail.com <a href="https://github.com/informaticaC/eCommerce.git"><i class='bx bxl-github' ></i></a> Netlify: <a href="https://e-commerce-mgp.netlify.app/">Despliegue en Netlify</a> </b></p>
+    </footer>
 
 </body>
 </html>
